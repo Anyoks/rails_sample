@@ -1,63 +1,58 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+ruby '2.0.0'
 
+gem 'rails', '4.0.0'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+group :development, :test do
+  gem 'sqlite3', '1.3.7'
+  gem 'rspec-rails', '2.13.1'
+  # The following optional lines are part of the advanced setup.
+  gem 'guard-rspec', '2.5.0'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'guard-spork', '1.5.0'
+  gem 'sprockets', '=2.11.0'
+  gem 'childprocess', '0.3.6'
+  
+end
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+group :test do
+  gem 'selenium-webdriver', '2.0.0'
+  gem 'capybara', '1.1.2' 
+  gem 'factory_girl_rails', '4.2.0'
+  gem 'cucumber-rails', '1.3.0', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+  gem 'ZenTest'
+  gem 'autotest-rails-pure'
+  gem 'minitest'
+  # Uncomment this line on OS X.
+  # gem 'growl', '1.0.3'
 
+  # Uncomment these lines on Linux.
+  gem 'libnotify', '0.8.0'
 
+  # Uncomment these lines on Windows.
+  # gem 'rb-notifu', '0.0.4'
+  # gem 'win32console', '1.3.2'
+end
 
-#gem 'pg', '0.12.2', group: :production
-gem 'rspec-rails', '2.10.0',  group: :development
+gem 'sass-rails', '4.0.1'
+gem 'uglifier', '2.1.1'
+gem 'coffee-rails', '4.0.0'
+gem 'jquery-rails', '2.2.1'
+gem 'turbolinks', '1.1.1'
+gem 'jbuilder', '1.0.2'
+gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+gem 'zip-zip' # will load compatibility for old rubyzip API.
+group :doc do
+  gem 'sdoc', '0.3.20', require: false
+end
 
-gem 'guard-rspec', '0.5.5', group: :development
-
-gem 'spork-rails', git: 'http://github.com/railstutorial/spork-rails.git'
-
-
-gem 'capybara', '1.1.2', group: :test 
-#gem 'rb-inotify', '0.8.8',group: :test
-gem 'libnotify', '0.5.9', group: :test
-gem 'rb-inotify', '~> 0.9', group: :test
-gem 'guard-spork', '0.3.2', group: :test
-#gem 'spork', '0.9.0', group: :test
-
-gem 'bootstrap-sass', '2.0.0'
-
-# Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
-
- gem 'annotate', '~> 2.4.1.beta'
-
- gem 'autotest-rails', :group => [:development, :test]
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+group :production do
+  gem 'pg', '0.15.1'
+end
