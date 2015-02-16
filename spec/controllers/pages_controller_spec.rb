@@ -2,6 +2,7 @@ require 'spec_helper'
 
 
 describe PagesController do
+  render_views 
 
   before (:each) do
     @base_title = "Ruby on Rails Tutorial Sample App"
@@ -10,7 +11,7 @@ describe PagesController do
 #I Don't really understand why the "Response.should together with "get 'home'" don't work, they don't render views.
 
   describe "GET 'home'" do
-    render_views
+
     it "returns http success" do
       get 'home'
       response.should be_success
